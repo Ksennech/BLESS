@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>add or edit product</title>
+</head>
+<body>
+<span th:text="#{lang.change}"></span>:
+<select id="locales">
+    <option value=""></option>
+    <option value="en" th:text="#{lang.eng}"></option>
+    <option value="ru" th:text="#{lang.ru}"></option>
+</select>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#locales").change(function () {
+            var selectedOption = $('#locales').val();
+            if (selectedOption != ''){
+                window.location.replace('?lang=' + selectedOption);
+            }
+        });
+    });
+</script>
+<form th:action="@{/createProduct}" th:object="${product}" method="post">
+
+    <div class="row">
+
+        <div class="form-group col-md-8">
+            <label for="name" class="col-form-label" >Product Name</label>
+            <input type="text" th:field="*{prodName}" class="form-control"
+                   id="firstName" placeholder="First Name" />
+        </div>
+        <div class="form-group col-md-8">
+            <label for="name" class="col-form-label">Product description</label>
+            <input type="text" th:field="*{prodDescription}" class="form-control"
+                   id="lastName" placeholder="Last Name" />
+        </div>
+        <div class="form-group col-md-8">
+            <label for="email" class="col-form-label">Price</label>
+            <input type="text" th:field="*{price}" class="form-control"
+                   id="email" placeholder="Email Id" />
+        </div>
+
+        <div class="col-md-6">
+            <input type="submit" class="btn btn-primary" value=" Submit ">
+        </div>
+
+        <input type="hidden" id="id" th:field="*{id}">
+
+    </div>
+</form>
+</body>
+</html>
