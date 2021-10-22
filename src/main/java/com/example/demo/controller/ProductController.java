@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-//@RequestMapping("/")
 public class ProductController {
+
     @Autowired
     ProductService productService;
 
@@ -24,8 +24,10 @@ public class ProductController {
         System.out.println("getAllProducts");
         List<Product> list = productService.getAllProducts();
         model.addAttribute("products", list);
+
         return "list-products";
     }
+
     @RequestMapping(path = {"/edit", "/edit/{id}"})
     public String editProductById(Model model, @PathVariable("id") Optional<Long> id)
             throws RecordNotFoundException{
@@ -37,20 +39,25 @@ public class ProductController {
         }else {
             model.addAttribute("product", new Product());
         }
+
         return "add-edit-product";
     }
+
     @RequestMapping(path = "/delete/{id}")
     public String deleteProductById(Model model, @PathVariable("id") Long id)
             throws RecordNotFoundException{
         System.out.println("deleteProductById"+id);
 
         productService.deleteProductById(id);
+
         return "redirect:/products";
     }
+
     @RequestMapping(path = "/createProduct", method = RequestMethod.POST)
     public String createOrUpdateProduct(Product product){
         System.out.println("createOrUpdateProduct");
         productService.createOrUpdateProduct(product);
+
         return "redirect:/products";
     }
 }

@@ -3,8 +3,11 @@ package com.example.demo.service;
 import com.example.demo.model.Product;
 
 public class CartItem {
+
     private final Product product;
+
     private int quantity;
+
     private double subTotal;
 
     public CartItem(Product product) {

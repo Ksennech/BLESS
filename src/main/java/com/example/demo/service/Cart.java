@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cart {
+
     private final List<CartItem> items;
     private double total;
 
@@ -47,22 +48,20 @@ public class Cart {
         }
     }
 
-    public void updateItem(Product product, int quantity) { // throws ProductNotFoundException
+    public void updateItem(Product product, int quantity) {
         CartItem item = getItem(product);
 
         if (item != null) {
             item.setQuantity(quantity);
         } else {
-            // throw new ProductNotFoundException();
         }
     }
-    public void removeItem(Product product){ // throws ProductNotFoundException
+    public void removeItem(Product product){
         CartItem item = getItem(product);
 
         if (item != null){
             items.remove(item);
         } else {
-            // throw new ProductNotFoundException();
         }
     }
 

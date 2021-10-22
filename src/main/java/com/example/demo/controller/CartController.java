@@ -22,6 +22,7 @@ public class CartController {
                       @RequestParam(value = "qty", required = false, defaultValue = "1") int qty){
         Cart cart = cartManager.getCart(session);
         cart.addItem(product, qty);
+
         return "cart";
     }
 
@@ -29,6 +30,7 @@ public class CartController {
     public String remove(HttpSession session, @RequestParam("id") Product product){
         Cart cart = cartManager.getCart(session);
         cart.removeItem(product);
+
         return "cart";
     }
 
@@ -36,6 +38,7 @@ public class CartController {
     public String update(HttpSession session, @RequestParam("id") Product product, @RequestParam("qty") int qty){
         Cart cart = cartManager.getCart(session);
         cart.updateItem(product, qty);
+
         return "cart";
     }
 }

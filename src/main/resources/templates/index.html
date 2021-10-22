@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-    <title>Page Title</title>
+    <title>Main</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -10,7 +10,6 @@
             margin: 0;
         }
 
-        /* Style the header */
         .header {
             padding: 30px;
             text-align: center;
@@ -18,18 +17,18 @@
             color: black;
         }
 
-        /* Increase the font size of the h1 element */
+
         .header h1 {
             font-size: 40px;
         }
 
-        /* Style the top navigation bar */
+
         .navbar {
             overflow: hidden;
             background-color: #333;
         }
 
-        /* Style the navigation bar links */
+
         .navbar a {
             float: left;
             display: block;
@@ -39,12 +38,12 @@
             text-decoration: none;
         }
 
-        /* Right-aligned link */
+
         .navbar a.right {
             float: right;
         }
 
-        /* Change color on hover */
+
         .navbar a:hover {
             background-color: #ddd;
             color: black;
@@ -67,8 +66,8 @@
     </a>
     <a sec:authorize="isAuthenticated()" href="/cart" th:text="#{cart.header}"></a>
     <a sec:authorize="isAuthenticated()" th:href="@{/profile}" class="right" th:text="#{account.header}" ></a>
-    <a sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="right">Logout</a>
-
+    <a sec:authorize="isAuthenticated()"><a th:href="@{/logout}" class="right" th:text="#{logout}"></a>
+    </a>
 </div>
 </body>
 <span th:text="#{lang.change}"></span>:
@@ -100,13 +99,11 @@
             box-sizing: border-box;
         }
 
-        /* Add padding to containers */
         .container {
             padding: 16px;
             background-color: white;
         }
 
-        /* Full-width input fields */
         input[type=text], input[type=password] {
             width: 100%;
             padding: 15px;
@@ -121,13 +118,11 @@
             outline: none;
         }
 
-        /* Overwrite default styles of hr */
         hr {
             border: 1px solid #f1f1f1;
             margin-bottom: 25px;
         }
 
-        /* Set a style for the submit button */
         .registerbtn {
             background-color: #badce3;
             color: black;
@@ -143,20 +138,20 @@
             opacity: 1;
         }
 
-        /* Add a blue text color to links */
         a {
             color: dodgerblue;
         }
 
-        /* Set a grey background color and center the text of the "sign in" section */
         .signin {
             background-color: white;
             text-align: center;
         }
     </style>
 <div class="container text-center">
-    <h1>Welcome to BLESS shop</h1>
+    <h1 th:text="#{welcome}"></h1>
 </div>
-
+<div>
+    <img src="photo_2021-07-02_11-21-00.jpg" alt="BLESS" width="2000">
+</div>
 </body>
 </html>

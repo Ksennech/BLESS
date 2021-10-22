@@ -20,6 +20,9 @@ public class Product {
     @Column(name = "prod_price")
     private double price;
 
+    @Column(name = "photo")
+    private String photo;
+
     public Product(){}
 
     public Long getId() {
@@ -54,6 +57,14 @@ public class Product {
         this.price = price;
     }
 
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -61,6 +72,7 @@ public class Product {
                 ", prodName='" + prodName + '\'' +
                 ", prodDescription='" + prodDescription + '\'' +
                 ", price=" + price +
+                ", photo='" + photo + '\'' +
                 '}';
     }
 }

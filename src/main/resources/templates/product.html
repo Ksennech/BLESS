@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>Product Page</title>
 </head>
 <body>
-<ul th:replace="fragments/header :: navigation"></ul>
 <form th:action="@{/cart/add}">
     <table border="1">
         <tbody>

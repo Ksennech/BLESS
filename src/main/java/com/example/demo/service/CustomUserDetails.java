@@ -12,7 +12,9 @@ import java.util.List;
 import java.util.Set;
 
 public class CustomUserDetails implements UserDetails {
+
     private static final long serialVersionUID = 1L;
+
     private User user;
 
     public CustomUserDetails(User user) {
@@ -27,7 +29,6 @@ public class CustomUserDetails implements UserDetails {
         for (Role role : roles) {
             authorities.add(new SimpleGrantedAuthority(role.getName()));
         }
-
         return authorities;
     }
 
